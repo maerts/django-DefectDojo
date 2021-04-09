@@ -719,5 +719,13 @@
         },
         "model": "dojo.test_type",
         "pk": 194
+    },
+    {
+        "fields": {
+            "name": "Fortify on Demand"
+        },
+        "model": "dojo.test_type",
+        "pk": 195
     }
+
 ]
