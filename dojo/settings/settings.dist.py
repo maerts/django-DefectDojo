@@ -1,5 +1,7 @@
 # Django settings for DefectDojo
 import os
+import ldap
+from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 from datetime import timedelta
 from celery.schedules import crontab
 
@@ -370,6 +372,8 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.azuread_tenant.AzureADTenantOAuth2',
     'social_core.backends.gitlab.GitLabOAuth2',
     'django.contrib.auth.backends.RemoteUserBackend',
+    'django.contrib.auth.backends.ModelBackend',
+    'django_auth_ldap.backend.LDAPBackend',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -1055,3 +1059,11 @@ USE_L10N = True
 
 JIRA_TEMPLATE_DIR = env('DD_JIRA_TEMPLATE_DIR')
 TEMPLATE_DIR_PREFIX = env('DD_TEMPLATE_DIR_PREFIX')
+
+# ldap configuration
+
+AUTH_LDAP_SERVER_URI = "ldap://<host>"
+AUTH_LDAP_START_TLS = False
+AUTH_LDAP_BIND_DN = "<bind dn>"
+AUTH_LDAP_BIND_PASSWORD = "<password>"
+AUTH_LDAP_USER_DN_TEMPLATE = "<user dn template>"

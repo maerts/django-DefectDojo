@@ -18,6 +18,10 @@ RUN \
     xmlsec1 \
     git \
     uuid-runtime \
+    libsasl2-dev \
+    python-dev \
+    libldap2-dev \
+    libssl-dev \
     && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists && \
